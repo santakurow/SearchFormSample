@@ -7,6 +7,13 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def search
+    @users = User.where("name LIKE(?)", "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.json {render "index", json: @users }
+    end
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
