@@ -1,0 +1,22 @@
+//$(function(){
+//  let name = `<% @users.each do |user| %>
+//                <%= user.name %>
+//               <% end %>`;
+//  console.log(name)
+//})
+
+$("#user-form").on("ajax:success", function(e){
+  $(this)[0].reset();
+  //$("#result-tbl").remove();
+  console.log("success");
+  let append = `<% @users.each do |user| %>
+                  <tr>
+                    <td><%= user.name %></td>
+                    <td><%= user.age %></td>
+                    <td><%= link_to "Show", user %></td>
+                    <td><%= link_to "Edit", edit_user_path(user) %></td>
+                    <td><%= link_to "Destroy", user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>`
+  $("#result-tbl").html(append);
+})

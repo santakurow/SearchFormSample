@@ -4,7 +4,14 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if params[:keyword].present?
+      @users = User.where("name like ?", "%#{params[:keyword]}%")
+      respond_to do |format|
+        format.js {render "search"}
+      end
+    else
+      @users = User.all
+    end
   end
 
   def search

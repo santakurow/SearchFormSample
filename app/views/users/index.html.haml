@@ -1,7 +1,17 @@
 %p#notice= notice
 %h1 Users
 
-%input{type: "form", id: "form", placeholder: "検索", style: "width: 250px;"}
+-# %input{type: "form", id: "form", placeholder: "検索", style: "width: 250px;"}
+-# = form_with url: "/users", method: :get, local: true do |f|
+-#   = f.search_field :keyword, placeholder: "検索", style: "width: 250px;"
+-#   = f.submit "検索"
+
+= form_with url: "/users", method: :get, id: "search-form" do |f|
+  = f.search_field :keyword, id: "search"
+
+= form_with url: "/users", method: :get, id: "user-form" do |f|
+  = f.search_field :keyword
+  = f.submit "検索"
 
 %ul#result
 
@@ -12,7 +22,7 @@
       %th Name
       %th Age
       %th{:colspan => "3"}
-  %tbody
+  %tbody#result-tbl
     - @users.each do |user|
       %tr
         %td= user.name
