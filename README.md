@@ -1,24 +1,23 @@
-# README
+# SearchFormSample
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+非同期での検索機能とインクリメンタルサーチをform_withとrails-ujsを使っての実装。  
+通常の検索機能もコメントアウトとして残してある。
 
-Things you may want to cover:
+#### 言語バージョン
+* Ruby 2.6.4
 
-* Ruby version
+#### フレームワーク
+* Ruby on Rails 6
 
-* System dependencies
+#### ライブラリ
+* jQuery
 
-* Configuration
+#### DB
+* MySQL
 
-* Database creation
+#### 使用した技術
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* ajax
+* haml-rails (gem)
+* webpack
+* rails-ujs
